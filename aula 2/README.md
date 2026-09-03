@@ -18,21 +18,41 @@ Ao concluir esta aula, espera-se que você consiga:
 
 ## Como executar o exemplo
 
-O PHP é executado no servidor. Portanto, abrir o arquivo diretamente no navegador não interpreta o código: é necessário utilizar um servidor com PHP.
+Esta aula já possui um ambiente configurado com **Docker Compose**, **PHP 8.3 FPM** e **Nginx**. Antes de começar, verifique se o Docker Desktop está instalado e em execução.
 
-Se o PHP estiver instalado e disponível no terminal, entre na pasta da aula e execute:
+No terminal, a partir da raiz do repositório, entre no diretório da aula:
 
 ```bash
-php -S localhost:8000
+cd "aula 2"
 ```
 
-Depois, acesse no navegador:
+Em seguida, inicie os contêineres em segundo plano:
+
+```bash
+docker compose up -d
+```
+
+Depois que os serviços estiverem ativos, acesse no navegador:
 
 ```text
-http://localhost:8000
+http://localhost:8080
 ```
 
-Os títulos impressos antes de cada bloco ajudam a separar visualmente os exemplos na página.
+O arquivo `index.php` é compartilhado com os contêineres por meio de um volume. Assim, as alterações feitas no código aparecem ao atualizar a página no navegador, sem precisar reiniciar o ambiente.
+
+Para verificar se os contêineres estão em execução, utilize:
+
+```bash
+docker compose ps
+```
+
+Ao terminar os estudos, pare e remova os contêineres da aula com:
+
+```bash
+docker compose down
+```
+
+Os títulos impressos antes de cada bloco ajudam a separar visualmente os exemplos na página. Para mais informações sobre a estrutura Docker e outros comandos úteis, consulte o [`README.md` da raiz](../README.md).
 
 ---
 
