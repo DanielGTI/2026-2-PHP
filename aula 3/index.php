@@ -59,6 +59,10 @@ class Aluno
         .resultado p:first-child { margin-top: 0; }
         .resultado p:last-child { margin-bottom: 0; }
         .dica { background: #eaf4ff; border-left: 4px solid #2878c8; margin-top: 1rem; padding: .65rem 1rem; }
+        .codigo { background: #282c34; border-left: 4px solid #f39c12; color: #f8f8f2; padding: .75rem 1rem; }
+        .codigo h3 { color: #fff; margin-top: 0; }
+        .codigo pre { background: #1e2127; color: #f8f8f2; margin-bottom: 0; }
+        .codigo code { color: inherit; }
         details { margin-top: 1rem; }
         summary { cursor: pointer; font-weight: bold; }
     </style>
@@ -69,7 +73,7 @@ class Aluno
 
     <section class="introducao">
         <strong>Objetivo da aula:</strong> entender como guardar dados em arrays e objetos e como o PHP usa operadores para calcular, comparar e combinar valores.
-        <br><strong>Como ler:</strong> em cada bloco, observe a explicação, a sintaxe destacada e o resultado gerado pelo código.
+        <br><strong>Como ler:</strong> em cada bloco, observe primeiro o código PHP comentado e, logo abaixo, o resultado que ele gerou.
     </section>
 
     <?php
@@ -82,7 +86,27 @@ class Aluno
     $tecnologias[] = 'PHP';
     ?>
     <p class="explicacao">Um <strong>array indexado</strong> guarda vários valores em uma única variável. Quando não informamos a chave, o PHP cria posições numéricas começando em <code>0</code>.</p>
+    <section class="codigo">
+        <h3>1. Código PHP: criando os arrays</h3>
+        <pre><code>&lt;?php
+// Cria o array já com quatro valores.
+// As posições serão: 0, 1, 2 e 3.
+$disciplinas = array('UNINOVE', 'PHP', 'Programação Web', 2015);
+
+// Cria um array vazio: ainda não há nenhum item nele.
+$tecnologias = [];
+
+// [] adiciona um novo item na próxima posição disponível.
+$tecnologias[] = 'HTML'; // posição 0
+$tecnologias[] = 'CSS';  // posição 1
+$tecnologias[] = 'PHP';  // posição 2
+
+// Acessa e mostra o item da posição 2: Programação Web.
+echo $disciplinas[2];
+?&gt;</code></pre>
+    </section>
     <div class="resultado">
+        <p><strong>2. Resultado do código acima:</strong></p>
         <p><strong>Sintaxe:</strong> <code>$disciplinas[2]</code> acessa a terceira posição, pois a contagem começa em zero.</p>
         <p>Terceiro item de <code>$disciplinas</code>: <?= htmlspecialchars((string) $disciplinas[2]) ?></p>
         <p>Array completo com <code>print_r()</code>:</p>
@@ -102,7 +126,22 @@ class Aluno
     ];
     ?>
     <p class="explicacao">No <strong>array associativo</strong>, cada dado recebe uma chave descritiva. Isso torna o código mais fácil de ler do que usar números como posições.</p>
+    <section class="codigo">
+        <h3>1. Código PHP: criando e consultando pelas chaves</h3>
+        <pre><code>&lt;?php
+// A chave fica à esquerda de =&gt; e o valor fica à direita.
+$alunoAssociativo = [
+    'Curso' =&gt; 'Tecnologia em Análise e Desenvolvimento de Sistemas',
+    'Nome' =&gt; 'Astrogildo Ambrósio Campos',
+    'RA' =&gt; '000.000.000.000',
+];
+
+// Obtém o valor associado à chave Nome.
+echo $alunoAssociativo['Nome'];
+?&gt;</code></pre>
+    </section>
     <div class="resultado">
+        <p><strong>2. Resultado do código acima:</strong></p>
         <p><strong>Sintaxe:</strong> para obter o nome, usamos <code>$alunoAssociativo['Nome']</code>.</p>
         <strong>Dados do aluno:</strong><br>
         <strong>Nome:</strong> <?= htmlspecialchars($alunoAssociativo['Nome']) ?><br>
@@ -129,7 +168,27 @@ class Aluno
     ];
     ?>
     <p class="explicacao">Um <strong>array multidimensional</strong> é um array que contém outros arrays. Ele é útil para representar listas mais completas, como cursos com várias informações.</p>
+    <section class="codigo">
+        <h3>1. Código PHP: array dentro de array e <code>foreach</code></h3>
+        <pre><code>&lt;?php
+// TADS é a chave do array externo; seus dados formam outro array.
+$cursos = [
+    'TADS' =&gt; [
+        'Descricao' =&gt; 'Tecnologia em Análise e Desenvolvimento de Sistemas',
+        'Disciplina' =&gt; 'Programação Web',
+    ],
+    // Os demais cursos seguem a mesma estrutura.
+];
+
+// Em cada volta, $sigla recebe a chave e $curso recebe os dados.
+foreach ($cursos as $sigla =&gt; $curso) {
+    echo $sigla;
+    echo $curso['Disciplina'];
+}
+?&gt;</code></pre>
+    </section>
     <div class="resultado">
+        <p><strong>2. Resultado do código acima:</strong></p>
         <p><strong>Sintaxe:</strong> o acesso direto ao curso TADS seria <code>$cursos['TADS']['Disciplina']</code>.</p>
         <?php foreach ($cursos as $sigla => $curso): ?>
             <p>
@@ -146,7 +205,27 @@ class Aluno
     $alunoObjeto = new Aluno();
     ?>
     <p class="explicacao">Uma <strong>classe</strong> funciona como um molde. O objeto <code>$alunoObjeto</code> foi criado a partir da classe <code>Aluno</code> e possui propriedades próprias.</p>
+    <section class="codigo">
+        <h3>1. Código PHP: classe, método e objeto</h3>
+        <pre><code>&lt;?php
+class Aluno
+{
+    public string $nome;
+
+    // O construtor é executado quando usamos new Aluno().
+    public function __construct()
+    {
+        $this-&gt;nome = 'Superman';
+    }
+}
+
+// Cria um objeto a partir do molde Aluno.
+$alunoObjeto = new Aluno();
+echo $alunoObjeto-&gt;nome; // acessa uma propriedade com -&gt;
+?&gt;</code></pre>
+    </section>
     <div class="resultado">
+        <p><strong>2. Resultado do código acima:</strong></p>
         <p><strong>Sintaxe:</strong> o operador <code>-&gt;</code> acessa propriedades e métodos de um objeto: <code>$alunoObjeto-&gt;nome</code>.</p>
         <strong>Nome:</strong> <?= htmlspecialchars($alunoObjeto->nome) ?><br>
         <strong>RA:</strong> <?= htmlspecialchars($alunoObjeto->ra) ?><br>
@@ -161,7 +240,21 @@ class Aluno
     $acumulado += $b;
     ?>
     <p class="explicacao">Operadores aritméticos calculam valores. Já os operadores de atribuição armazenam ou atualizam o valor de uma variável.</p>
+    <section class="codigo">
+        <h3>1. Código PHP: atribuir e calcular</h3>
+        <pre><code>&lt;?php
+$a = 10; // atribui 10 à variável a
+$b = 2;  // atribui 2 à variável b
+
+echo $a + $b; // soma: 12
+echo $a * $b; // multiplicação: 20
+
+$acumulado = $a;
+$acumulado += $b; // soma b ao valor que já existia
+?&gt;</code></pre>
+    </section>
     <div class="resultado">
+        <p><strong>2. Resultado dos cálculos:</strong></p>
         <p><code>$a = <?= $a ?></code> e <code>$b = <?= $b ?></code></p>
         <ul>
             <li>Adição: <?= $a + $b ?></li>
@@ -181,7 +274,22 @@ class Aluno
     $tres = 3;
     ?>
     <p class="explicacao">Comparações produzem valores booleanos: <code>true</code> (verdadeiro) ou <code>false</code> (falso). Operadores lógicos permitem combinar essas comparações.</p>
+    <section class="codigo">
+        <h3>1. Código PHP: comparar e combinar condições</h3>
+        <pre><code>&lt;?php
+// == verifica somente o valor; === verifica valor e tipo.
+$mesmoValor = 10 == '10';
+$mesmoValorETipo = 10 === '10';
+
+$um = 1;
+$dois = 2;
+$tres = 3;
+// && só resulta em true quando as duas condições são verdadeiras.
+$ordemCrescente = ($um &lt; $dois) &amp;&amp; ($dois &lt; $tres);
+?&gt;</code></pre>
+    </section>
     <div class="resultado">
+        <p><strong>2. Resultado das comparações:</strong></p>
         <p><strong>Importante:</strong> <code>==</code> compara o valor; <code>===</code> compara valor <em>e</em> tipo. Por isso o texto <code>"10"</code> não é idêntico ao número <code>10</code>.</p>
         <ul>
             <li><code>10 == "10"</code>: <?= mostrarBooleano(10 == '10') ?></li>
@@ -201,7 +309,18 @@ class Aluno
     $valorExibidoPre = ++$preIncremento;
     ?>
     <p class="explicacao">Os operadores <code>++</code> e <code>--</code> alteram um número em uma unidade. A posição do operador define se a alteração acontece antes ou depois de usar o valor.</p>
+    <section class="codigo">
+        <h3>1. Código PHP: a posição de <code>++</code> importa</h3>
+        <pre><code>&lt;?php
+$posIncremento = 10;
+$valorExibidoPos = $posIncremento++; // usa 10 e depois passa a 11
+
+$preIncremento = 10;
+$valorExibidoPre = ++$preIncremento; // passa a 11 e depois usa 11
+?&gt;</code></pre>
+    </section>
     <div class="resultado">
+        <p><strong>2. Resultado do incremento:</strong></p>
         <p>Pós-incremento: o valor exibido foi <?= $valorExibidoPos ?>; depois, a variável passou a valer <?= $posIncremento ?>.</p>
         <p>Pré-incremento: o valor exibido foi <?= $valorExibidoPre ?>; a variável vale <?= $preIncremento ?>.</p>
     </div>
@@ -218,7 +337,24 @@ class Aluno
     $todasAsCores = $coresQuentes + $coresFrias;
     ?>
     <p class="explicacao">O ponto (<code>.</code>) junta textos. Para arrays, o sinal de adição (<code>+</code>) faz uma união preservando as chaves do primeiro array.</p>
+    <section class="codigo">
+        <h3>1. Código PHP: concatenar textos e unir arrays</h3>
+        <pre><code>&lt;?php
+$instituicao = 'Uninove';
+$mensagem = ' com você é dez!';
+
+// . cria um novo texto juntando os dois valores.
+$textoConcatenado = $instituicao . $mensagem;
+// .= acrescenta o texto à própria variável.
+$instituicao .= $mensagem;
+
+$coresQuentes = ['c' =&gt; 'red', 'd' =&gt; 'green'];
+$coresFrias = ['e' =&gt; 'blue', 'f' =&gt; 'yellow'];
+$todasAsCores = $coresQuentes + $coresFrias;
+?&gt;</code></pre>
+    </section>
     <div class="resultado">
+        <p><strong>2. Resultado das operações:</strong></p>
         <p>Concatenação: <?= htmlspecialchars($textoConcatenado) ?></p>
         <p>Após <code>.=</code>: <?= htmlspecialchars($instituicao) ?></p>
         <p>União de arrays com <code>+</code>:</p>
