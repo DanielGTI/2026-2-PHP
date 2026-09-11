@@ -87,6 +87,7 @@ class Aluno
     // ================================================================
     // BLOCO 1 — PRATIQUE: arrays indexados
     // Edite os valores ou adicione novas tecnologias abaixo.
+    // Textos fixos usam aspas simples; use aspas duplas se precisar de uma variável.
     // ================================================================
     $disciplinas = array('UNINOVE', 'PHP', 'Programação Web', 2015);
     $tecnologias = [];
@@ -95,6 +96,17 @@ class Aluno
     $tecnologias[] = 'PHP';
     ?>
     <p class="explicacao">Um <strong>array indexado</strong> guarda vários valores em uma única variável. Quando não informamos a chave, o PHP cria posições numéricas começando em <code>0</code>.</p>
+    <aside class="dica">
+        <strong>Aspas simples ou duplas?</strong>
+        <ul>
+            <li>Use <code>'texto'</code> para um texto literal. É a escolha mais comum para valores fixos, como <code>'PHP'</code>.</li>
+            <li>Use <code>"texto"</code> quando precisar inserir o valor de uma variável no texto ou interpretar sequências como <code>\n</code> (nova linha).</li>
+        </ul>
+        <p><code>$linguagem = 'PHP';</code><br>
+        Com aspas simples, <code>'Estudando $linguagem'</code> mantém <code>$linguagem</code> como texto.<br>
+        Com aspas duplas, <code>"Estudando $linguagem"</code> se torna <code>"Estudando PHP"</code>.</p>
+        <p><strong>Regra prática:</strong> prefira aspas simples para textos fixos; use aspas duplas somente quando precisar inserir uma variável no texto ou usar uma sequência especial.</p>
+    </aside>
     <section class="codigo">
         <h3>1. Código PHP: criando os arrays</h3>
         <pre><code>&lt;?php
@@ -114,7 +126,7 @@ $tecnologias[] = 'PHP';  // posição 2
 echo $disciplinas[2];
 ?&gt;</code></pre>
     </section>
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>87 a 95</strong>. Troque os valores entre aspas, mude o ano ou acrescente uma nova linha <code>$tecnologias[] = 'JavaScript';</code>.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>87 a 96</strong>. Troque os valores entre aspas, mude o ano ou acrescente uma nova linha <code>$tecnologias[] = 'JavaScript';</code>.</p>
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
         <p><strong>Sintaxe:</strong> <code>$disciplinas[2]</code> acessa a terceira posição, pois a contagem começa em zero.</p>
@@ -154,7 +166,7 @@ $alunoAssociativo = [
 echo $alunoAssociativo['Nome'];
 ?&gt;</code></pre>
     </section>
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>132 a 140</strong>. Modifique os valores à direita de <code>=&gt;</code>, como o nome, curso ou RA.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>144 a 152</strong>. Modifique os valores à direita de <code>=&gt;</code>, como o nome, curso ou RA.</p>
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
         <p><strong>Sintaxe:</strong> para obter o nome, usamos <code>$alunoAssociativo['Nome']</code>.</p>
@@ -206,7 +218,7 @@ foreach ($cursos as $sigla =&gt; $curso) {
 }
 ?&gt;</code></pre>
     </section>
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>170 a 187</strong>. Altere os dados de um curso ou copie a estrutura de um curso para cadastrar outro.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>182 a 199</strong>. Altere os dados de um curso ou copie a estrutura de um curso para cadastrar outro.</p>
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
         <p><strong>Sintaxe:</strong> o acesso direto ao curso TADS seria <code>$cursos['TADS']['Disciplina']</code>.</p>
@@ -278,7 +290,7 @@ $acumulado = $a;
 $acumulado += $b; // soma b ao valor que já existia
 ?&gt;</code></pre>
     </section>
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>258 a 265</strong>. Troque os valores de <code>$a</code> e <code>$b</code> e recarregue a página para calcular novamente.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>270 a 277</strong>. Troque os valores de <code>$a</code> e <code>$b</code> e recarregue a página para calcular novamente.</p>
     <div class="resultado">
         <p><strong>2. Resultado dos cálculos:</strong></p>
         <p><code>$a = <?= $a ?></code> e <code>$b = <?= $b ?></code></p>
@@ -318,7 +330,7 @@ $tres = 3;
 $ordemCrescente = ($um &lt; $dois) &amp;&amp; ($dois &lt; $tres);
 ?&gt;</code></pre>
     </section>
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>298 a 304</strong>. Mude os valores de <code>$um</code>, <code>$dois</code> e <code>$tres</code> para testar condições verdadeiras e falsas.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>310 a 316</strong>. Mude os valores de <code>$um</code>, <code>$dois</code> e <code>$tres</code> para testar condições verdadeiras e falsas.</p>
     <div class="resultado">
         <p><strong>2. Resultado das comparações:</strong></p>
         <p><strong>Importante:</strong> <code>==</code> compara o valor; <code>===</code> compara valor <em>e</em> tipo. Por isso o texto <code>"10"</code> não é idêntico ao número <code>10</code>.</p>
@@ -354,7 +366,7 @@ $preIncremento = 10;
 $valorExibidoPre = ++$preIncremento; // passa a 11 e depois usa 11
 ?&gt;</code></pre>
     </section>
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>337 a 344</strong>. Comece os dois números com outros valores e compare o pré e o pós-incremento.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>349 a 356</strong>. Comece os dois números com outros valores e compare o pré e o pós-incremento.</p>
     <div class="resultado">
         <p><strong>2. Resultado do incremento:</strong></p>
         <p>Pós-incremento: o valor exibido foi <?= $valorExibidoPos ?>; depois, a variável passou a valer <?= $posIncremento ?>.</p>
@@ -393,7 +405,7 @@ $coresFrias = ['e' =&gt; 'blue', 'f' =&gt; 'yellow'];
 $todasAsCores = $coresQuentes + $coresFrias;
 ?&gt;</code></pre>
     </section>
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>366 a 377</strong>. Altere os textos ou inclua novas chaves e cores nos arrays.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>378 a 389</strong>. Altere os textos ou inclua novas chaves e cores nos arrays.</p>
     <div class="resultado">
         <p><strong>2. Resultado das operações:</strong></p>
         <p>Concatenação: <?= htmlspecialchars($textoConcatenado) ?></p>
