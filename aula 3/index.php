@@ -34,6 +34,10 @@ class Aluno
 
     public function definirDados(): void
     {
+        // ================================================================
+        // BLOCO 4 — PRATIQUE: classe, propriedades e objeto
+        // Edite os dados abaixo para criar o seu próprio aluno.
+        // ================================================================
         $this->nome = 'Superman';
         $this->ra = '1234567890';
         $this->endereco = 'Sala da Justiça';
@@ -63,6 +67,7 @@ class Aluno
         .codigo h3 { color: #fff; margin-top: 0; }
         .codigo pre { background: #1e2127; color: #f8f8f2; margin-bottom: 0; }
         .codigo code { color: inherit; }
+        .localizacao { background: #fff7e6; border-left: 4px solid #f39c12; margin: 0; padding: .65rem 1rem; }
         details { margin-top: 1rem; }
         summary { cursor: pointer; font-weight: bold; }
     </style>
@@ -79,6 +84,10 @@ class Aluno
     <?php
     titulo('Bloco 1 — Criando arrays indexados');
 
+    // ================================================================
+    // BLOCO 1 — PRATIQUE: arrays indexados
+    // Edite os valores ou adicione novas tecnologias abaixo.
+    // ================================================================
     $disciplinas = array('UNINOVE', 'PHP', 'Programação Web', 2015);
     $tecnologias = [];
     $tecnologias[] = 'HTML';
@@ -105,6 +114,7 @@ $tecnologias[] = 'PHP';  // posição 2
 echo $disciplinas[2];
 ?&gt;</code></pre>
     </section>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>87 a 95</strong>. Troque os valores entre aspas, mude o ano ou acrescente uma nova linha <code>$tecnologias[] = 'JavaScript';</code>.</p>
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
         <p><strong>Sintaxe:</strong> <code>$disciplinas[2]</code> acessa a terceira posição, pois a contagem começa em zero.</p>
@@ -119,6 +129,10 @@ echo $disciplinas[2];
     <?php
     titulo('Bloco 2 — Array associativo');
 
+    // ================================================================
+    // BLOCO 2 — PRATIQUE: array associativo
+    // Edite os valores à direita de => para personalizar o aluno.
+    // ================================================================
     $alunoAssociativo = [
         'Curso' => 'Tecnologia em Análise e Desenvolvimento de Sistemas',
         'Nome' => 'Astrogildo Ambrósio Campos',
@@ -140,6 +154,7 @@ $alunoAssociativo = [
 echo $alunoAssociativo['Nome'];
 ?&gt;</code></pre>
     </section>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>132 a 140</strong>. Modifique os valores à direita de <code>=&gt;</code>, como o nome, curso ou RA.</p>
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
         <p><strong>Sintaxe:</strong> para obter o nome, usamos <code>$alunoAssociativo['Nome']</code>.</p>
@@ -152,6 +167,10 @@ echo $alunoAssociativo['Nome'];
     <?php
     titulo('Bloco 3 — Array multidimensional');
 
+    // ================================================================
+    // BLOCO 3 — PRATIQUE: array multidimensional
+    // Edite um curso ou crie outro seguindo a mesma estrutura.
+    // ================================================================
     $cursos = [
         'TADS' => [
             'Descricao' => 'Tecnologia em Análise e Desenvolvimento de Sistemas',
@@ -187,6 +206,7 @@ foreach ($cursos as $sigla =&gt; $curso) {
 }
 ?&gt;</code></pre>
     </section>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>170 a 187</strong>. Altere os dados de um curso ou copie a estrutura de um curso para cadastrar outro.</p>
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
         <p><strong>Sintaxe:</strong> o acesso direto ao curso TADS seria <code>$cursos['TADS']['Disciplina']</code>.</p>
@@ -224,6 +244,7 @@ $alunoObjeto = new Aluno();
 echo $alunoObjeto-&gt;nome; // acessa uma propriedade com -&gt;
 ?&gt;</code></pre>
     </section>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>37 a 44</strong>. Experimente mudar os valores atribuídos a <code>$this-&gt;nome</code>, <code>$this-&gt;ra</code> e <code>$this-&gt;endereco</code>.</p>
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
         <p><strong>Sintaxe:</strong> o operador <code>-&gt;</code> acessa propriedades e métodos de um objeto: <code>$alunoObjeto-&gt;nome</code>.</p>
@@ -234,6 +255,10 @@ echo $alunoObjeto-&gt;nome; // acessa uma propriedade com -&gt;
 
     <?php
     titulo('Bloco 5 — Operadores de atribuição e aritméticos');
+    // ================================================================
+    // BLOCO 5 — PRATIQUE: operadores aritméticos e atribuição
+    // Edite os números de $a e $b e observe os novos cálculos.
+    // ================================================================
     $a = 10;
     $b = 2;
     $acumulado = $a;
@@ -253,6 +278,7 @@ $acumulado = $a;
 $acumulado += $b; // soma b ao valor que já existia
 ?&gt;</code></pre>
     </section>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>258 a 265</strong>. Troque os valores de <code>$a</code> e <code>$b</code> e recarregue a página para calcular novamente.</p>
     <div class="resultado">
         <p><strong>2. Resultado dos cálculos:</strong></p>
         <p><code>$a = <?= $a ?></code> e <code>$b = <?= $b ?></code></p>
@@ -269,6 +295,10 @@ $acumulado += $b; // soma b ao valor que já existia
 
     <?php
     titulo('Bloco 6 — Operadores de comparação e lógicos');
+    // ================================================================
+    // BLOCO 6 — PRATIQUE: comparação e operadores lógicos
+    // Edite $um, $dois e $tres para criar outros resultados booleanos.
+    // ================================================================
     $um = 1;
     $dois = 2;
     $tres = 3;
@@ -288,6 +318,7 @@ $tres = 3;
 $ordemCrescente = ($um &lt; $dois) &amp;&amp; ($dois &lt; $tres);
 ?&gt;</code></pre>
     </section>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>298 a 304</strong>. Mude os valores de <code>$um</code>, <code>$dois</code> e <code>$tres</code> para testar condições verdadeiras e falsas.</p>
     <div class="resultado">
         <p><strong>2. Resultado das comparações:</strong></p>
         <p><strong>Importante:</strong> <code>==</code> compara o valor; <code>===</code> compara valor <em>e</em> tipo. Por isso o texto <code>"10"</code> não é idêntico ao número <code>10</code>.</p>
@@ -303,6 +334,10 @@ $ordemCrescente = ($um &lt; $dois) &amp;&amp; ($dois &lt; $tres);
 
     <?php
     titulo('Bloco 7 — Pré e pós-incremento');
+    // ================================================================
+    // BLOCO 7 — PRATIQUE: pré e pós-incremento
+    // Edite os valores iniciais e compare o efeito de ++ antes e depois.
+    // ================================================================
     $posIncremento = 10;
     $valorExibidoPos = $posIncremento++;
     $preIncremento = 10;
@@ -319,6 +354,7 @@ $preIncremento = 10;
 $valorExibidoPre = ++$preIncremento; // passa a 11 e depois usa 11
 ?&gt;</code></pre>
     </section>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>337 a 344</strong>. Comece os dois números com outros valores e compare o pré e o pós-incremento.</p>
     <div class="resultado">
         <p><strong>2. Resultado do incremento:</strong></p>
         <p>Pós-incremento: o valor exibido foi <?= $valorExibidoPos ?>; depois, a variável passou a valer <?= $posIncremento ?>.</p>
@@ -327,6 +363,10 @@ $valorExibidoPre = ++$preIncremento; // passa a 11 e depois usa 11
 
     <?php
     titulo('Bloco 8 — Operadores de strings e arrays');
+    // ================================================================
+    // BLOCO 8 — PRATIQUE: strings, concatenação e união de arrays
+    // Edite os textos, chaves ou cores para experimentar essas operações.
+    // ================================================================
     $instituicao = 'Uninove';
     $mensagem = ' com você é dez!';
     $textoConcatenado = $instituicao . $mensagem;
@@ -353,6 +393,7 @@ $coresFrias = ['e' =&gt; 'blue', 'f' =&gt; 'yellow'];
 $todasAsCores = $coresQuentes + $coresFrias;
 ?&gt;</code></pre>
     </section>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>366 a 377</strong>. Altere os textos ou inclua novas chaves e cores nos arrays.</p>
     <div class="resultado">
         <p><strong>2. Resultado das operações:</strong></p>
         <p>Concatenação: <?= htmlspecialchars($textoConcatenado) ?></p>
