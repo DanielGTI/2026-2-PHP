@@ -112,7 +112,7 @@ if ($idade &gt;= 18) {
 ?&gt;</code></pre>
     </section>
     
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>80 a 85</strong>. Modifique <code>$a1</code>, <code>$b1</code> ou <code>$idade1</code> para ver o desvio condicional mudar.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>120 e 125</strong>. Ajuste as condições <code>if</code> para alterar os desvios exibidos neste bloco.</p>
     
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
@@ -170,7 +170,7 @@ if ($nota &gt;= 9.0) {
 ?&gt;</code></pre>
     </section>
 
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>126 a 130</strong>. Altere <code>$a2</code>, <code>$b2</code> ou <code>$notaAluno</code> para testar outros caminhos do código.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>179 e 192</strong>. Ajuste as condições <code>if...elseif...else</code> para testar outros caminhos do código.</p>
 
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
@@ -258,7 +258,7 @@ switch ($perfil) {
 ?&gt;</code></pre>
     </section>
 
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>181 a 183</strong>. Mude o valor de <code>$destino</code> para "Paris", "São Paulo" ou outra cidade, e <code>$perfilUsuario</code> para "admin" ou "visitante".</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>267 e 289</strong>. Ajuste os blocos <code>switch</code> que definem as mensagens de destino e de perfil.</p>
 
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
@@ -333,7 +333,7 @@ for ($i = 1; $i &lt;= 5; $i++) {
 ?&gt;</code></pre>
     </section>
 
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>254 a 256</strong>. Altere <code>$limiteContagem</code> ou <code>$limiteTabuada</code> para ajustar as iterações.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>343, 351 e 354</strong>. Ajuste os laços <code>for</code> que geram a sequência e as tabuadas.</p>
 
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
@@ -399,7 +399,7 @@ foreach ($produtos as $item =&gt; $preco) {
 ?&gt;</code></pre>
     </section>
 
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>306 a 312</strong>. Adicione nomes à lista de <code>$nomes</code> ou novos produtos ao array associativo <code>$produtos</code>.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>408 e 415</strong>. Ajuste os laços <code>foreach</code> que exibem os nomes e os produtos.</p>
 
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
@@ -452,7 +452,7 @@ echo "Meta atingida em $meses meses com R$ $saldo";
 ?&gt;</code></pre>
     </section>
 
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>361 a 364</strong>. Altere o valor inicial de <code>$contadorWhile</code> ou ajuste a meta em <code>$metaMeta</code>.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>463 e 475</strong>. Ajuste as condições dos laços <code>while</code> para alterar as repetições exibidas.</p>
 
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
@@ -512,7 +512,7 @@ do {
 ?&gt;</code></pre>
     </section>
 
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>416 a 418</strong>. Modifique <code>$contadorCondicaoFalsa</code> e observe que o texto é exibido mesmo a condição sendo inválida.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>523 e 534</strong>. Ajuste os blocos <code>do...while</code> e observe que eles executam ao menos uma vez.</p>
 
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
