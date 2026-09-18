@@ -41,10 +41,15 @@ function escapar(string $texto): string
         .resultado p:first-child { margin-top: 0; }
         .resultado p:last-child { margin-bottom: 0; }
         .dica { background: #eaf4ff; border-left: 4px solid #2878c8; margin-top: 1rem; padding: .65rem 1rem; }
-        .codigo { background: #282c34; border-left: 4px solid #f39c12; color: #f8f8f2; padding: .75rem 1rem; }
+        .codigo { background: #282c34; border-left: 4px solid #f39c12; color: #f8f8f2; padding: .75rem 1rem; position: relative; }
         .codigo h3 { color: #fff; margin-top: 0; }
+        .codigo h3 a { color: #f9d65c; }
+        .codigo h3 a:hover, .codigo h3 a:focus-visible { color: #fff09a; }
         .codigo pre { background: #1e2127; color: #f8f8f2; margin-bottom: 0; }
         .codigo code { color: inherit; }
+        .copiar-codigo { align-items: center; background: #3b4048; border: 1px solid #737985; border-radius: 4px; color: #fff; cursor: pointer; display: flex; height: 2rem; justify-content: center; padding: 0; position: absolute; right: 1rem; top: .75rem; width: 2rem; }
+        .copiar-codigo:hover, .copiar-codigo:focus-visible { background: #505762; outline: 2px solid #f39c12; outline-offset: 2px; }
+        .copiar-codigo svg { height: 1.1rem; width: 1.1rem; }
         .localizacao { background: #fff7e6; border-left: 4px solid #f39c12; margin: 0; padding: .65rem 1rem; }
         details { margin-top: 1rem; }
         summary { cursor: pointer; font-weight: bold; }
@@ -66,7 +71,7 @@ function escapar(string $texto): string
 </head>
 <body>
     <h1>Aula 4 — Estruturas de Decisão e Looping</h1>
-    <p>Exemplos executáveis baseados no material da aula. Cada resultado abaixo foi calculado pelo PHP antes de a página chegar ao navegador.</p>
+    <p>Exemplos executáveis baseados no material da aula. Cada resultado abaixo foi calculado pelo PHP antes de a página chegar ao navegador. Os códigos em fundo escuro também podem ser copiados para um console online, como o OneCompiler: cada <code>echo</code> termina com <code>"\n"</code> para exibir um resultado por linha.</p>
 
     <section class="introducao">
         <strong>Objetivo da aula:</strong> Entender como o PHP trabalha com estruturas de decisão do tipo <code>if</code>, <code>if...else</code>, <code>if...elseif...else</code> e <code>switch/case</code>, além dos laços de repetição (looping): <code>for</code>, <code>foreach</code>, <code>while</code> e <code>do...while</code>.
@@ -93,26 +98,27 @@ function escapar(string $texto): string
     </aside>
 
     <section class="codigo">
-        <h3>1. Código PHP: testando igualdade e validação de idade</h3>
+        <button class="copiar-codigo" type="button" aria-label="Copiar código do exemplo" title="Copiar código"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+        <h3>1. Código PHP: testando igualdade e validação de idade — <a href="https://onecompiler.com/php" target="_blank" rel="noopener noreferrer">Praticar no OneCompiler</a></h3>
         <pre><code>&lt;?php
 // Exemplo 1: Comparação simples de igualdade (if)
 $a = 5;
 $b = 5;
 if ($a == $b) {
-    echo 'A variável $a é igual a variável $b';
+    echo 'A variável $a é igual a variável $b' . "\n";
 }
 
 // Exemplo 2: Verificação com alternativa (if...else)
 $idade = 20;
 if ($idade &gt;= 18) {
-    echo 'Acesso permitido: Usuário é maior de idade.';
+    echo 'Acesso permitido: Usuário é maior de idade.' . "\n";
 } else {
-    echo 'Acesso negado: Usuário é menor de idade.';
+    echo 'Acesso negado: Usuário é menor de idade.' . "\n";
 }
 ?&gt;</code></pre>
     </section>
     
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>120 e 125</strong>. Ajuste as condições <code>if</code> para alterar os desvios exibidos neste bloco.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>88 a 92</strong>. Ajuste os valores das variáveis para alterar os desvios exibidos neste bloco.</p>
     
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
@@ -144,33 +150,34 @@ if ($idade &gt;= 18) {
     <p class="explicacao">Quando temos mais de duas possibilidades de desvio, utilizamos o <code>elseif</code>. Ele deve ser obrigatoriamente precedido por um <code>if</code> e permite checar uma segunda condição caso a primeira seja falsa.</p>
     
     <section class="codigo">
-        <h3>1. Código PHP: checando somas e conceitos de notas</h3>
+        <button class="copiar-codigo" type="button" aria-label="Copiar código do exemplo" title="Copiar código"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+        <h3>1. Código PHP: checando somas e conceitos de notas — <a href="https://onecompiler.com/php" target="_blank" rel="noopener noreferrer">Praticar no OneCompiler</a></h3>
         <pre><code>&lt;?php
 // Exemplo 1: Verificação de soma de variáveis
 $a = 5; $b = 6;
 if ($a == $b) {
-    echo 'A variável $a é igual a $b';
+    echo 'A variável $a é igual a $b' . "\n";
 } elseif (($a + $b) == 11) {
-    echo 'A soma das variáveis $a + $b é igual a 11';
+    echo 'A soma das variáveis $a + $b é igual a 11' . "\n";
 } else {
-    echo 'A soma das variáveis $a + $b é diferente de 11';
+    echo 'A soma das variáveis $a + $b é diferente de 11' . "\n";
 }
 
 // Exemplo 2: Classificação de Desempenho Escolar
 $nota = 7.5;
 if ($nota &gt;= 9.0) {
-    echo 'Conceito A — Excelente!';
+    echo 'Conceito A — Excelente!' . "\n";
 } elseif ($nota &gt;= 7.0) {
-    echo 'Conceito B — Bom!';
+    echo 'Conceito B — Bom!' . "\n";
 } elseif ($nota &gt;= 5.0) {
-    echo 'Conceito C — Recuperação.';
+    echo 'Conceito C — Recuperação.' . "\n";
 } else {
-    echo 'Conceito D — Reprovado.';
+    echo 'Conceito D — Reprovado.' . "\n";
 }
 ?&gt;</code></pre>
     </section>
 
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>179 e 192</strong>. Ajuste as condições <code>if...elseif...else</code> para testar outros caminhos do código.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>145 a 148</strong>. Ajuste os valores das variáveis para testar outros caminhos do código.</p>
 
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
@@ -219,46 +226,47 @@ if ($nota &gt;= 9.0) {
     </aside>
 
     <section class="codigo">
-        <h3>1. Código PHP: escolhendo destinos e permissões de usuário</h3>
+        <button class="copiar-codigo" type="button" aria-label="Copiar código do exemplo" title="Copiar código"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+        <h3>1. Código PHP: escolhendo destinos e permissões de usuário — <a href="https://onecompiler.com/php" target="_blank" rel="noopener noreferrer">Praticar no OneCompiler</a></h3>
         <pre><code>&lt;?php
 // Exemplo 1: Destinos de viagem (Exemplo da Apostila)
 $destino = "New York";
 switch ($destino) {
     case "São Paulo":
-        echo 'Seja bem-vindo à cidade que nunca para!';
+        echo 'Seja bem-vindo à cidade que nunca para!' . "\n";
         break;
     case "Paris":
-        echo 'Seja bem-vindo à Cidade Luz!';
+        echo 'Seja bem-vindo à Cidade Luz!' . "\n";
         break;
     case "New York":
-        echo 'Seja bem-vindo à Big Apple!';
+        echo 'Seja bem-vindo à Big Apple!' . "\n";
         break;
     case "Rio de Janeiro":
-        echo 'Seja bem-vindo à Cidade Maravilhosa!';
+        echo 'Seja bem-vindo à Cidade Maravilhosa!' . "\n";
         break;
     default:
-        echo 'Não encontramos seu destino!';
+        echo 'Não encontramos seu destino!' . "\n";
 }
 
 // Exemplo 2: Permissão de Acesso no Sistema
 $perfil = "editor";
 switch ($perfil) {
     case "admin":
-        echo 'Acesso total ao sistema.';
+        echo 'Acesso total ao sistema.' . "\n";
         break;
     case "editor":
-        echo 'Acesso para criar e editar conteúdos.';
+        echo 'Acesso para criar e editar conteúdos.' . "\n";
         break;
     case "visitante":
-        echo 'Acesso apenas para leitura.';
+        echo 'Acesso apenas para leitura.' . "\n";
         break;
     default:
-        echo 'Perfil não reconhecido.';
+        echo 'Perfil não reconhecido.' . "\n";
 }
 ?&gt;</code></pre>
     </section>
 
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>267 e 289</strong>. Ajuste os blocos <code>switch</code> que definem as mensagens de destino e de perfil.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>219 e 220</strong>. Mude o destino ou o perfil para testar outras mensagens do <code>switch</code>.</p>
 
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
@@ -316,24 +324,25 @@ switch ($perfil) {
     <p class="explicacao">Utilizamos a instrução <code>for</code> quando sabemos previamente a quantidade exata de vezes que o bloco deve ser executado. É dividida em 3 partes: <code>expressão1</code> (inicialização), <code>expressão2</code> (condição) e <code>expressão3</code> (incremento).</p>
 
     <section class="codigo">
-        <h3>1. Código PHP: contagem simples e tabuadas aninhadas</h3>
+        <button class="copiar-codigo" type="button" aria-label="Copiar código do exemplo" title="Copiar código"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+        <h3>1. Código PHP: contagem simples e tabuadas aninhadas — <a href="https://onecompiler.com/php" target="_blank" rel="noopener noreferrer">Praticar no OneCompiler</a></h3>
         <pre><code>&lt;?php
 // Exemplo 1: Contagem de 1 até 10
 for ($i = 1; $i &lt;= 10; $i++) {
-    echo $i . " ";
+    echo $i . "\n";
 }
 
 // Exemplo 2: For aninhado (Tabuada)
 for ($i = 1; $i &lt;= 5; $i++) {
-    echo "Tabuada do $i: ";
+    echo "Tabuada do $i:\n";
     for ($j = 1; $j &lt;= 10; $j++) {
-        echo "$i x $j = " . ($i * $j) . " | ";
+        echo "$i x $j = " . ($i * $j) . "\n";
     }
 }
 ?&gt;</code></pre>
     </section>
 
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>343, 351 e 354</strong>. Ajuste os laços <code>for</code> que geram a sequência e as tabuadas.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>321 e 322</strong>. Ajuste os limites que geram a sequência e as tabuadas.</p>
 
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
@@ -383,23 +392,24 @@ for ($i = 1; $i &lt;= 5; $i++) {
     </aside>
 
     <section class="codigo">
-        <h3>1. Código PHP: percorrendo vetor simples e array associativo</h3>
+        <button class="copiar-codigo" type="button" aria-label="Copiar código do exemplo" title="Copiar código"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+        <h3>1. Código PHP: percorrendo vetor simples e array associativo — <a href="https://onecompiler.com/php" target="_blank" rel="noopener noreferrer">Praticar no OneCompiler</a></h3>
         <pre><code>&lt;?php
 // Exemplo 1: Sintaxe 1 (Apenas valores)
 $nomes = array('Thiago', 'João', 'Ricardo', 'Paula');
 foreach ($nomes as $valor) {
-    echo $valor . "&lt;br&gt;";
+    echo $valor . "\n";
 }
 
 // Exemplo 2: Sintaxe 2 (Chave/Índice =&gt; Valor)
 $produtos = array('Teclado' =&gt; 150.00, 'Mouse' =&gt; 80.00);
 foreach ($produtos as $item =&gt; $preco) {
-    echo "Item: $item — Preço: R$ " . number_format($preco, 2, ',', '.');
+    echo "Item: $item — Preço: R$ " . number_format($preco, 2, ',', '.') . "\n";
 }
 ?&gt;</code></pre>
     </section>
 
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>408 e 415</strong>. Ajuste os laços <code>foreach</code> que exibem os nomes e os produtos.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>379 a 384</strong>. Adicione ou altere os nomes e produtos percorridos pelo <code>foreach</code>.</p>
 
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
@@ -432,12 +442,13 @@ foreach ($produtos as $item =&gt; $preco) {
     <p class="explicacao">O laço <code>while</code> repete um bloco de código <strong>enquanto</strong> a condição verificada for verdadeira. A presença de um contador/incremento é obrigatória para evitar que o código caia em um loop infinito.</p>
 
     <section class="codigo">
-        <h3>1. Código PHP: contador numérico e acumulador financeiro</h3>
+        <button class="copiar-codigo" type="button" aria-label="Copiar código do exemplo" title="Copiar código"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+        <h3>1. Código PHP: contador numérico e acumulador financeiro — <a href="https://onecompiler.com/php" target="_blank" rel="noopener noreferrer">Praticar no OneCompiler</a></h3>
         <pre><code>&lt;?php
 // Exemplo 1: Contagem simples com While
 $i = 1;
 while ($i &lt;= 10) {
-    echo $i . " ";
+    echo $i . "\n";
     $i++; // Incremento obrigatório
 }
 
@@ -448,11 +459,11 @@ while ($saldo &lt; 150) {
     $saldo += 10; // Adiciona 10 por iteração
     $meses++;
 }
-echo "Meta atingida em $meses meses com R$ $saldo";
+echo "Meta atingida em $meses meses com R$ $saldo\n";
 ?&gt;</code></pre>
     </section>
 
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>463 e 475</strong>. Ajuste as condições dos laços <code>while</code> para alterar as repetições exibidas.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>438 a 440</strong>. Ajuste os valores inicial e de meta para alterar as repetições exibidas.</p>
 
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
@@ -494,25 +505,26 @@ echo "Meta atingida em $meses meses com R$ $saldo";
     <p class="explicacao">A diferença fundamental entre o <code>while</code> e o <code>do...while</code> é que o <code>do...while</code> garante que o bloco de instruções seja executado <strong>pelo menos uma vez</strong> antes de testar a condição pela primeira vez.</p>
 
     <section class="codigo">
-        <h3>1. Código PHP: execução normal vs execução com condição inicialmente falsa</h3>
+        <button class="copiar-codigo" type="button" aria-label="Copiar código do exemplo" title="Copiar código"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>
+        <h3>1. Código PHP: execução normal vs execução com condição inicialmente falsa — <a href="https://onecompiler.com/php" target="_blank" rel="noopener noreferrer">Praticar no OneCompiler</a></h3>
         <pre><code>&lt;?php
 // Exemplo 1: Execução padrão do...while
 $i = 1;
 do {
-    echo $i . " ";
+    echo $i . "\n";
     $i++;
 } while ($i &lt;= 10);
 
 // Exemplo 2: Testando valor onde a condição é falsa logo de início
 $j = 20;
 do {
-    echo "Executou ao menos uma vez! Valor de j: $j";
+    echo "Executou ao menos uma vez! Valor de j: $j\n";
     $j++;
 } while ($j &lt;= 10); // Condição é falsa, mas executou 1 vez!
 ?&gt;</code></pre>
     </section>
 
-    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>523 e 534</strong>. Ajuste os blocos <code>do...while</code> e observe que eles executam ao menos uma vez.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>502 e 503</strong>. Ajuste os valores iniciais e observe que o <code>do...while</code> executa ao menos uma vez.</p>
 
     <div class="resultado">
         <p><strong>2. Resultado do código acima:</strong></p>
@@ -581,6 +593,37 @@ do {
         </tbody>
     </table>
 
-    
+    <script>
+        document.querySelectorAll('.copiar-codigo').forEach((botao) => {
+            botao.addEventListener('click', async () => {
+                const codigo = botao.closest('.codigo').querySelector('pre code').textContent;
+                const iconeOriginal = botao.innerHTML;
+
+                try {
+                    if (navigator.clipboard && window.isSecureContext) {
+                        await navigator.clipboard.writeText(codigo);
+                    } else {
+                        const areaDeTexto = document.createElement('textarea');
+                        areaDeTexto.value = codigo;
+                        document.body.appendChild(areaDeTexto);
+                        areaDeTexto.select();
+                        document.execCommand('copy');
+                        areaDeTexto.remove();
+                    }
+
+                    botao.textContent = '✓';
+                    botao.setAttribute('aria-label', 'Código copiado');
+                    botao.title = 'Código copiado!';
+                    setTimeout(() => {
+                        botao.innerHTML = iconeOriginal;
+                        botao.setAttribute('aria-label', 'Copiar código do exemplo');
+                        botao.title = 'Copiar código';
+                    }, 1800);
+                } catch (erro) {
+                    botao.title = 'Não foi possível copiar o código';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
