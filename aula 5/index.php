@@ -33,6 +33,8 @@ class Saudacao
 $bandas = ['Pearl Jam', 'Metallica', 'Pearl Jam', 'Faith No More', 'Nirvana', 'Angra'];
 $precos = ['teclado' => 150.00, 'mouse' => 80.00, 'monitor' => 950.00];
 $dadosAluno = ['nome' => 'Ana', 'nota' => 9.0, 'ativo' => true];
+$tecnologias = ['PHP', 'HTML'];
+$arrAtividade = ['var' => [6 => 5, 13 => 9, 'a' => 42]];
 $objeto = new Saudacao('Maria');
 ?>
 <!doctype html>
@@ -77,6 +79,7 @@ echo "Quantidade: $quantidade\n";
 echo "Preço: $preco\n";
 echo "Mensagem: $mensagem\n";
 ?&gt;</code></pre></section>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>33 a 38</strong> e <strong>84 a 87</strong>. Ajuste as variáveis e os valores exibidos para experimentar os tipos escalares.</p>
     <div class="resultado"><strong>Resultado:</strong><ul class="lista-resultados">
         <li><code>$ativo</code> = <?= e(var_export($dadosAluno['ativo'], true)) ?> (<?= e(tipo($dadosAluno['ativo'])) ?>)</li>
         <li><code>$quantidade</code> = 42 (<?= e(tipo(42)) ?>)</li>
@@ -94,6 +97,7 @@ echo 'Primeiro nome: ' . $nomes[0] . "\n";
 echo 'Nome do aluno: ' . $aluno['nome'] . "\n";
 echo 'Nota: ' . $aluno['nota'] . "\n";
 ?&gt;</code></pre></section>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>33 a 38</strong> e <strong>101</strong>. Altere o array <code>$dadosAluno</code> e observe os itens exibidos.</p>
     <div class="resultado"><strong>Resultado do array associativo:</strong><ul class="lista-resultados"><?php foreach ($dadosAluno as $chave => $valor): ?><li><code><?= e($chave) ?></code> =&gt; <?= e(is_bool($valor) ? var_export($valor, true) : $valor) ?></li><?php endforeach; ?></ul></div>
 
     <h2>Bloco 3 — <code>array_unique()</code>: removendo duplicados</h2>
@@ -105,6 +109,7 @@ foreach ($resultado as $indice =&gt; $banda) {
     echo "Banda[$indice]: $banda\n";
 }
 ?&gt;</code></pre></section>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>33 a 38</strong> e <strong>113</strong>. Adicione, remova ou repita valores no array <code>$bandas</code> para testar <code>array_unique()</code>.</p>
     <div class="resultado"><strong>Resultado:</strong><ul class="lista-resultados"><?php foreach (array_unique($bandas) as $indice => $banda): ?><li>Banda[<?= e($indice) ?>]: <span class="cor2"><?= e($banda) ?></span></li><?php endforeach; ?></ul></div>
 
     <h2>Bloco 4 — Ordenando valores: <code>asort()</code> e <code>arsort()</code></h2>
@@ -125,6 +130,7 @@ foreach ($decrescente as $produto =&gt; $preco) {
     echo "$produto: R$ $preco\n";
 }
 ?&gt;</code></pre></section>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>33 a 38</strong> e <strong>134 a 135</strong>. Modifique os produtos, as chaves ou os preços no array <code>$precos</code>.</p>
     <?php $crescente = $precos; asort($crescente); $decrescente = $precos; arsort($decrescente); ?>
     <div class="resultado"><table><thead><tr><th>asort() — crescente</th><th>arsort() — decrescente</th></tr></thead><tbody><tr><td><?php foreach ($crescente as $item => $preco): ?><?= e($item) ?>: R$ <?= number_format($preco, 2, ',', '.') ?><br><?php endforeach; ?></td><td><?php foreach ($decrescente as $item => $preco): ?><?= e($item) ?>: R$ <?= number_format($preco, 2, ',', '.') ?><br><?php endforeach; ?></td></tr></tbody></table></div>
 
@@ -143,6 +149,7 @@ $porChaveReversa = $dados;
 krsort($porChaveReversa);
 echo 'krsort(): ' . implode(', ', array_keys($porChaveReversa)) . "\n";
 ?&gt;</code></pre></section>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>33 a 38</strong> e <strong>153 a 154</strong>. Ajuste o array <code>$bandas</code> e as chaves usadas nas ordenações.</p>
     <?php $chaves = ['zebra' => 1, 'ana' => 2, 'maria' => 3]; $porChave = $chaves; ksort($porChave); $porChaveReversa = $chaves; krsort($porChaveReversa); ?>
     <div class="resultado"><p>Foram encontradas <span class="cor3"><?= count($bandas) ?></span> bandas no array original.</p><p><strong>ksort():</strong> <?= e(implode(', ', array_keys($porChave))) ?><br><strong>krsort():</strong> <?= e(implode(', ', array_keys($porChaveReversa))) ?></p></div>
 
@@ -158,7 +165,8 @@ echo 'Após array_merge(): ' . implode(', ', $unidos) . "\n";
 echo 'array_slice(1, 2): ' . implode(', ', array_slice($unidos, 1, 2)) . "\n";
 echo in_array('PHP', $unidos, true) ? "PHP foi encontrado.\n" : "PHP não foi encontrado.\n";
 ?&gt;</code></pre></section>
-    <?php $lista = ['PHP', 'HTML']; array_push($lista, 'CSS'); $unidos = array_merge($lista, ['JavaScript']); ?>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>33 a 38</strong> e <strong>169 a 175</strong>. Inclua ou remova tecnologias do array <code>$tecnologias</code> para alterar as operações exibidas.</p>
+    <?php $lista = $tecnologias; array_push($lista, 'CSS'); $unidos = array_merge($lista, ['JavaScript']); ?>
     <table><thead><tr><th>Função</th><th>Uso</th><th>Exemplo executado</th></tr></thead><tbody>
         <tr><td><code>array_push()</code></td><td>Adiciona elementos ao final.</td><td><?= e(implode(', ', $lista)) ?></td></tr>
         <tr><td><code>array_merge()</code></td><td>Une arrays.</td><td><?= e(implode(', ', $unidos)) ?></td></tr>
@@ -182,13 +190,14 @@ class Saudacao {
 $pessoa = new Saudacao('Maria');
 echo $pessoa-&gt;dizerOla() . "\n";
 ?&gt;</code></pre></section>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>33 a 38</strong> e <strong>194</strong>. Troque <code>'Maria'</code> ao criar <code>$objeto</code> para mudar a saudação.</p>
     <div class="resultado"><strong>Resultado:</strong> <?= e($objeto->dizerOla()) ?> O valor é do tipo <code><?= e(tipo($objeto)) ?></code>.</div>
 
     <h2>Bloco 8 — Tipos especiais e atividade final</h2>
     <p><code>null</code> representa uma variável sem valor. Um <code>resource</code> representa um recurso externo, geralmente criado por funções específicas, como uma conexão ou um arquivo aberto.</p>
-    <?php $semValor = null; $arrAtividade = ['var' => [6 => 5, 13 => 9, 'a' => 42]]; ?>
+    <?php $semValor = null; ?>
     <div class="dica"><strong>Atividade:</strong><ol><li>Tipos escalares: <strong>A. Integer, Float e String</strong>.</li><li>Declaração de array: <strong>A. <code>$var = array();</code></strong>.</li><li>Em <code>$arr['var'][13]</code>, o valor retornado é <strong><?= e($arrAtividade['var'][13]) ?></strong> (alternativa A).</li></ol></div>
-    <p class="localizacao"><strong>Pratique:</strong> altere os arrays declarados no topo do arquivo e recarregue a página para observar os efeitos de cada função.</p>
+    <p class="localizacao"><strong>Onde alterar no arquivo:</strong> linhas <strong>33 a 38</strong> e <strong>198 a 199</strong>. Modifique as chaves e os valores de <code>$arrAtividade</code>; altere também o índice <code>[13]</code> na atividade para consultar outro valor.</p>
 
     <script>
         document.querySelectorAll('.copiar-codigo').forEach((botao) => {
