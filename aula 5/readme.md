@@ -1,6 +1,6 @@
 # Aula 5 — Manipulação de Arrays e Objetos em PHP
 
-Página prática baseada no material **aula5.pdf**, do Prof. Adriano Kleber Milanez. Ela apresenta os tipos de dados do PHP, arrays simples e associativos, funções para manipular arrays e uma introdução a objetos.
+Este conteúdo apresenta os tipos de dados do PHP, arrays simples e associativos, funções para manipular arrays e uma introdução a objetos.
 
 ## Executar com Docker
 
