@@ -1,6 +1,6 @@
 # Aula 6 — Variáveis pré-definidas (superglobais) em PHP
 
-Material baseado no PDF `aula6.pdf`, do Prof. Adriano Kleber Milanez, adaptado para PHP 8.3 e organizado conforme o modelo visual e didático da aula 3.
+Material adaptado para PHP 8.3.
 
 ## Executar com Docker
 
