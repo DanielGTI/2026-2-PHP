@@ -222,7 +222,7 @@ function exemplo(string $titulo, string $codigo): void
 </head>
 <body>
     <h1>Aula 6 — Variáveis pré-definidas (superglobais)</h1>
-    <p>Conteúdo baseado no material do Prof. Adriano Kleber Milanez, com exemplos adaptados para PHP 8.3. Os resultados são calculados no servidor, como na aula 3.</p>
+    <p>Conteúdo com exemplos adaptados para PHP 8.3. Os resultados são calculados no servidor, como na aula 3.</p>
     <section class="introducao">
         <strong>Objetivo:</strong> acessar variáveis globais, consultar o servidor, receber formulários e arquivos e manter informações com cookies e sessões.
         <br><strong>Como estudar:</strong> leia a explicação, copie o exemplo e observe o resultado. Os exemplos de console simulam os dados HTTP quando necessário; os formulários desta página usam requisições reais.
